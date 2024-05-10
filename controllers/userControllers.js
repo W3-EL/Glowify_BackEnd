@@ -6,10 +6,10 @@ const generateToken = (_id) => {
 }
 
 const signUpUser = async (req, res) => {
-    const { email, password, fullname, gender } = req.body;
+    const { email, password, fullname, gender,phone } = req.body;
   
     try {
-      const user = await User.signUp(email, password, fullname, gender);
+      const user = await User.signUp(email, password, fullname, gender,phone);
       const token = generateToken(user._id);
       res.status(200).json({ user, token });
     } catch (error) {
@@ -20,7 +20,6 @@ const signUpUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     const {email, password} = req.body;
-    console.log("hoi",email,password);
     try {
         const user = await User.logIn(email, password);
         const token = generateToken(user._id);
@@ -54,6 +53,22 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const user = await User.findOneAndDelete({ _id: userId });
+
+        if (!user) {
+            return res.status(404).json({ success: false, error: 'User not found' });
+        }
+
+        res.json({ success: true, data: user });
+    } catch (err) {
+
+        res.status(500).json({ message: err.message });
+    }
+};
 
 
 
@@ -65,4 +80,6 @@ const getAllUsers = async (req, res) => {
 
 
 
-module.exports = { getAllUsers, getUserById, loginUser, signUpUser };
+
+
+module.exports = { getAllUsers, getUserById, loginUser, signUpUser,deleteUser };

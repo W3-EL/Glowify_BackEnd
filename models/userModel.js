@@ -33,9 +33,9 @@ const userSchema = new Schema({
   }, { timestamps: true });
 
 
-userSchema.statics.signUp = async function(email, password, fullname,gender) {
+userSchema.statics.signUp = async function(email, password, fullname,gender,phone) {
 
-    if (!email || !password || !fullname || !gender) {
+    if (!email || !password || !fullname || !gender ||  !phone) {
       throw Error("Email, password, fullname, and gender cannot be empty");
     } else if (!validator.isEmail(email)) {
       throw Error("Invalid email format");
@@ -54,6 +54,7 @@ userSchema.statics.signUp = async function(email, password, fullname,gender) {
       email,
       password: hash,
       gender,
+        phone,
     });
   
     return user;
