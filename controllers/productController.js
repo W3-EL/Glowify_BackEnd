@@ -2,13 +2,15 @@ const Product = require('../models/productModel');
 
 exports.createProduct = async (req, res) => {
     try {
-        const { product_name, desc_prod, price, stock, category, brand } = req.body;
+        const { product_name, desc_prod, price, stock,img,gender, category, brand } = req.body;
 
         const newProduct = new Product({
             product_name,
             desc_prod,
             price,
             stock,
+            img,
+            gender,
             category,
             brand
         });
@@ -24,11 +26,11 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const { product_name, desc_prod, price, stock } = req.body;
+        const { product_name, desc_prod, price, stock ,img,gender} = req.body;
 
         const updatedProduct = await Product.findOneAndUpdate(
             { _id: id },
-            { product_name, desc_prod, price, stock },
+            { product_name, desc_prod, price, stock ,img,gender},
             { new: true }
         );
 
@@ -46,6 +48,22 @@ exports.getProducts = async (req, res) => {
     try {
         const products = await Product.find();
         res.json({ success: true, data: products });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+exports.getAllCategories = async (req, res) => {
+    try {
+        const categories = await Product.distinct('category');
+        res.json({ success: true, data: categories });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+exports.getAllBrands = async (req, res) => {
+    try {
+        const brand = await Product.distinct('brand');
+        res.json({ success: true, data: brand });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }

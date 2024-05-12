@@ -1,7 +1,7 @@
 const express = require('express');
 const productrouter = express.Router();
 const requireAdminAuth = require('../middlewares/requireAdminAuth');
-const { updateProduct, createProduct, deleteProduct, getProductById, getProducts } = require('../controllers/productController');
+const { updateProduct, createProduct, deleteProduct, getProductById, getProducts,getAllCategories } = require('../controllers/productController');
 
 
 productrouter.post('/', requireAdminAuth, createProduct);
@@ -15,6 +15,8 @@ productrouter.delete('/:id', requireAdminAuth, deleteProduct);
 productrouter.get('/:id', getProductById);
 
 productrouter.get('/', getProducts);
+
+productrouter.get('/category/', getAllCategories);
 
 
 

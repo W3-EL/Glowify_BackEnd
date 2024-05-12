@@ -11,6 +11,12 @@ const brandSchema = new Schema({
         type: String 
     }
 });
+const categorySchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+});
 
 const productSchema = new Schema({
     product_name: {
@@ -29,9 +35,15 @@ const productSchema = new Schema({
         type: Number,
         required: true
     },
-    category: {
-        type: String
+    img: {
+        type: String,
+        required: true
     },
+    gender: {
+        type: String,
+        required: true,
+    },
+    category: categorySchema,
     brand: brandSchema 
 }, { timestamps: true });
 

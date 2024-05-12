@@ -7,6 +7,8 @@ const adressRouter = require("./routes/adressRouter");
 const productrouter = require("./routes/productRouter");
 const orderRouter = require("./routes/orderRoutes");
 const contactrouter = require("./routes/contactRouter");
+const categoryrouter = require("./routes/categoryRouter");
+const brandrouter = require("./routes/brandRouter")
 require("dotenv").config();
 
 
@@ -22,6 +24,8 @@ app.use('/adress', adressRouter);
 app.use('/product', productrouter);
 app.use('/order', orderRouter);
 app.use('/contact', contactrouter);
+app.use('/category', categoryrouter);
+app.use('/brand', brandrouter);
 
 
 mongoose.connect(process.env.MONGO_URI)
