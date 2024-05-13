@@ -9,6 +9,7 @@ const orderRouter = require("./routes/orderRoutes");
 const contactrouter = require("./routes/contactRouter");
 const categoryrouter = require("./routes/categoryRouter");
 const brandrouter = require("./routes/brandRouter")
+const Paymentrouter = require("./routes/PaymentRouter")
 require("dotenv").config();
 
 
@@ -26,6 +27,7 @@ app.use('/order', orderRouter);
 app.use('/contact', contactrouter);
 app.use('/category', categoryrouter);
 app.use('/brand', brandrouter);
+app.use('/payment', Paymentrouter);
 
 
 mongoose.connect(process.env.MONGO_URI)
