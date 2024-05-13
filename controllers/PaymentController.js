@@ -4,14 +4,14 @@ const express = require('express');
 exports.Addpayment = async (req, res) => {
     const url = "https://developers.flouci.com/api/generate_payment";
     const payload = {
-        "app_token": "07871599-39a5-4b3d-b443-a39d1e536ebe", //7ot l public key mte3ek elli fel site
-        "app_secret": process.env.private_key,  //7ot l private key fel .env
+        "app_token": "",
+        "app_secret": process.env.private_key,
         "amount": req.body.amount,
         "accept_card": "true",
         "session_timeout_secs": 1200,
         "success_link": "http://localhost:4200/payment/success",
         "fail_link": "http://localhost:4200/payment/fail",
-        "developer_tracking_id": "37943079-416e-4333-b644-f4fbbeb4a2e3" //id fel url mta3 site
+        "developer_tracking_id": "37943079-416e-4333-b644-f4fbbeb4a2e3"
     };
 
     if (payload.amount<1999999) {
