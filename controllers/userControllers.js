@@ -1,16 +1,27 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken")
 
-const generateToken = (_id) => {
-    return jwt.sign({_id}, process.env.SECRET, { expiresIn: "365d" })
-}
+
+
+const generateToken = (user) => {
+    const payload = {
+        id: user._id,
+        email: user.email,
+        fullname: user.fullname,
+        gender: user.gender,
+        phone: user.phone,
+        role: user.role
+    };
+
+    return jwt.sign(payload, process.env.SECRET, { expiresIn: "365d" });
+};
 
 const signUpUser = async (req, res) => {
     const { email, password, fullname, gender,phone } = req.body;
   
     try {
       const user = await User.signUp(email, password, fullname, gender,phone);
-      const token = generateToken(user._id);
+      const token = generateToken(user);
       res.status(200).json({ user, token });
     } catch (error) {
       res.status(400).json({ error: error.message });
@@ -22,7 +33,7 @@ const loginUser = async (req, res) => {
     const {email, password} = req.body;
     try {
         const user = await User.logIn(email, password);
-        const token = generateToken(user._id);
+        const token = generateToken(user);
         res.status(200).json({user,token});
     } catch (error) {
         res.status(400).json({error : error.message});
