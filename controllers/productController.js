@@ -100,3 +100,26 @@ exports.deleteProduct = async (req, res) => {
         res.status(400).json({ success: false, error: error.message });
     }
 };
+exports.countProducts = async (req, res) => {
+    try {
+        const productCount = await Product.countDocuments();
+        res.json({ success: true, data: productCount });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+exports.countCategories = async (req, res) => {
+    try {
+        const categories = await Product.aggregate([
+            { $group: { _id: "$category", count: { $sum: 1 } } },
+            { $group: { _id: null, distinctCategories: { $sum: 1 } } }
+        ]);
+
+        // Extract the count of distinct categories
+        const distinctCategoryCount = categories.length > 0 ? categories[0].distinctCategories : 0;
+
+        res.json({ success: true, data: distinctCategoryCount });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};

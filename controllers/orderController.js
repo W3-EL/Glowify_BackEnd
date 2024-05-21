@@ -2,12 +2,12 @@ const Order = require('../models/orderModel');
 
 exports.createOrder = async (req, res) => {
     try {
-        const { items, total} = req.body;
+        const { items} = req.body;
 
         const newOrder = new Order({
             user: req.user._id,
             items,
-            total,
+
         });
 
         await newOrder.save();

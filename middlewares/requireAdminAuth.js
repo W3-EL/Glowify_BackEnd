@@ -10,7 +10,7 @@ const requireAdminAuth = async (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.SECRET);
         req.user = decoded;
-        const user = await User.findById(req.user.id);
+        const user = await User.findById(req.user._id);
 
         if (!user) {
             return res.status(500).json({"mssg": "No user found with this token"});

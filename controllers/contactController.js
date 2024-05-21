@@ -60,3 +60,11 @@ exports.deleteContact = async (req, res) => {
         res.status(400).json({ success: false, error: error.message });
     }
 };
+exports.countContacts = async (req, res) => {
+    try {
+        const contactCount = await Contact.countDocuments();
+        res.json({ success: true, count: contactCount });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};

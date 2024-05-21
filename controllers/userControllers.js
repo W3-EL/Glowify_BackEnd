@@ -1,11 +1,13 @@
 const User = require("../models/userModel");
+const Cart = require('../models/cartModel');
 const jwt = require("jsonwebtoken")
+const Product = require("../models/productModel");
 
 
 
 const generateToken = (user) => {
     const payload = {
-        id: user._id,
+        _id: user._id,
         email: user.email,
         fullname: user.fullname,
         gender: user.gender,
@@ -21,6 +23,8 @@ const signUpUser = async (req, res) => {
   
     try {
       const user = await User.signUp(email, password, fullname, gender,phone);
+      const newCart = new Cart({ user: user._id });
+      await newCart.save();
       const token = generateToken(user);
       res.status(200).json({ user, token });
     } catch (error) {
@@ -80,6 +84,14 @@ const deleteUser = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+const countUsers = async (req, res) => {
+    try {
+        const userCount = await User.countDocuments();
+        res.json({ success: true, count: userCount });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
 
 
 
@@ -93,4 +105,4 @@ const deleteUser = async (req, res) => {
 
 
 
-module.exports = { getAllUsers, getUserById, loginUser, signUpUser,deleteUser };
+module.exports = { getAllUsers, getUserById, loginUser, signUpUser,deleteUser,countUsers };

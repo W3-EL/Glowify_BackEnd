@@ -8,8 +8,10 @@ const productrouter = require("./routes/productRouter");
 const orderRouter = require("./routes/orderRoutes");
 const contactrouter = require("./routes/contactRouter");
 const categoryrouter = require("./routes/categoryRouter");
-const brandrouter = require("./routes/brandRouter")
-const Paymentrouter = require("./routes/PaymentRouter")
+const brandrouter = require("./routes/brandRouter");
+const Paymentrouter = require("./routes/PaymentRouter");
+const cartRoutes = require('./routes/cartRouter');
+
 require("dotenv").config();
 
 
@@ -28,6 +30,7 @@ app.use('/contact', contactrouter);
 app.use('/category', categoryrouter);
 app.use('/brand', brandrouter);
 app.use('/payment', Paymentrouter);
+app.use('/cart', cartRoutes);
 
 
 mongoose.connect(process.env.MONGO_URI)

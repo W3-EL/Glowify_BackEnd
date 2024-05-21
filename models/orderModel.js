@@ -8,7 +8,7 @@ const orderItemSchema = new Schema({
         ref: 'Product',
         required: true
     },
-    quantity: {
+    total: {
         type: Number,
         required: true
     }
@@ -21,10 +21,7 @@ const orderSchema = new Schema({
         required: true
     },
     items: [orderItemSchema],
-    total: {
-        type: Number,
-        required: true
-    },
+
     status: {
         type: String,
         enum: ['Pending', 'On_Hold', 'Shipped', 'Delivered'],
