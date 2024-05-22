@@ -19,6 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.2",
+    "node-cron": "^3.0.3",
     "passport": "^0.5.3",
     "url-validator": "^2.0.3",
     "validator": "^13.11.0"
