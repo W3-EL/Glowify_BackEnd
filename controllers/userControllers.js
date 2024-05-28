@@ -93,6 +93,26 @@ const countUsers = async (req, res) => {
     }
 };
 
+const updateUsersToAdmin = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { role} = req.body;
+
+        const updated = await User.findOneAndUpdate(
+            { _id: id },
+            { role},
+            { new: true }
+        );
+
+        if (!updated) {
+            return res.status(404).json({ success: false, error: 'User not found' });
+        }
+
+        res.json({ success: true, data: updated });
+    } catch (error) {
+        res.status(400).json({ success: false, error: error.message });
+    }
+};
 
 
 
@@ -105,4 +125,6 @@ const countUsers = async (req, res) => {
 
 
 
-module.exports = { getAllUsers, getUserById, loginUser, signUpUser,deleteUser,countUsers };
+
+
+module.exports = { getAllUsers, getUserById, loginUser, signUpUser,deleteUser,countUsers,updateUsersToAdmin };

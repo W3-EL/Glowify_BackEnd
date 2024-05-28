@@ -173,6 +173,27 @@ exports.validatePromoCode = async (req, res) => {
     }
 };
 
+exports.updatePromoCode = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { codePromo, discountAmount, expirationDate} = req.body;
+
+        const updatedPromoCode = await PromoCode.findOneAndUpdate(
+            { _id: id },
+            { codePromo, discountAmount, expirationDate},
+            { new: true }
+        );
+
+        if (!updatedPromoCode) {
+            return res.status(404).json({ success: false, error: 'PromoCode not found' });
+        }
+
+        res.json({ success: true, data: updatedPromoCode });
+    } catch (error) {
+        res.status(400).json({ success: false, error: error.message });
+    }
+};
+
 exports.countPromoCode = async (req, res) => {
     try {
         const promoCode = await PromoCode.countDocuments();

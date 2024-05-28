@@ -1,16 +1,31 @@
 const Order = require('../models/orderModel');
-
+const Cart = require('../models/cartModel');
 exports.createOrder = async (req, res) => {
     try {
-        const { items} = req.body;
+        const { total } = req.body;
+        const userId = req.user._id;
 
+        // Find the user's cart
+        const cart = await Cart.findOne({ user: userId }).populate('products.product');
+
+        if (!cart || cart.products.length === 0) {
+            return res.status(400).json({ success: false, error: 'Cart is empty' });
+        }
+
+        // Create a new order using the cart and provided total
         const newOrder = new Order({
-            user: req.user._id,
-            items,
-
+            user: userId,
+            cart: cart._id,
+            total: total
         });
 
+        // Save the new order
         await newOrder.save();
+
+        // Optionally, you might want to clear the cart after the order is created
+        cart.products = [];
+        cart.empty = true;
+        await cart.save();
 
         res.status(201).json({ success: true, data: newOrder });
     } catch (error) {

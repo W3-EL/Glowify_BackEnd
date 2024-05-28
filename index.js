@@ -12,6 +12,7 @@ const brandrouter = require("./routes/brandRouter");
 const Paymentrouter = require("./routes/PaymentRouter");
 const cartRoutes = require('./routes/cartRouter');
 
+
 require("dotenv").config();
 
 
@@ -23,7 +24,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use('/user', userRoute);
-app.use('/adress', adressRouter);
+app.use('/address', adressRouter);
 app.use('/product', productrouter);
 app.use('/order', orderRouter);
 app.use('/contact', contactrouter);

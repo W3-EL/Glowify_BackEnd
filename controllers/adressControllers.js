@@ -1,16 +1,35 @@
 const Address = require('../models/adressModel');
+const Cart = require("../models/cartModel");
 
 exports.createAddress = async (req, res) => {
     try {
-        const { country, city, address, zipcode } = req.body;
-        const userId = req.user._id;
+        const userId = req.body.user;
+//        const address = new Address({ user: userId, products: [], empty: true });
+        const newAddress = new Address({
 
+            user: userId
+        });
+        await newAddress.save();
+        res.status(201).json({ success: true, data: newAddress });
+    } catch (error) {
+        res.status(400).json({ success: false, error: error.message });
+    }
+};
+exports.addAddress = async (req, res) => {
+    try {
+
+        const userId = req.user._id;
+        const existingAddress = await Address.findOne({ user: userId });
+        if (existingAddress) {
+            return res.status(400).json({ success: false, error: 'User already has an address' });
+        }
+        const { state, city, address ,additionalInformation} = req.body;
         const newAddress = await Address.create({
-            country,
+            state,
             city,
             address,
-            zipcode,
-            user: userId
+            user: userId,
+            additionalInformation: additionalInformation
         });
 
         res.status(201).json({ success: true, data: newAddress });
@@ -22,13 +41,12 @@ exports.createAddress = async (req, res) => {
 
 exports.updateAddress = async (req, res) => {
     try {
-        const { id } = req.params;
-        const { country, city, address, zipcode } = req.body;
+        const { state, city, address, additionalInformation } = req.body;
         const userId = req.user._id;
 
         const updatedAddress = await Address.findOneAndUpdate(
-            { _id: id, user: userId },
-            { country, city, address, zipcode },
+            { user: userId },
+            { state, city, address, additionalInformation },
             { new: true }
         );
 
@@ -44,10 +62,9 @@ exports.updateAddress = async (req, res) => {
 
 exports.deleteAddress = async (req, res) => {
     try {
-        const { id } = req.params;
         const userId = req.user._id;
 
-        const deletedAddress = await Address.findOneAndDelete({ _id: id, user: userId });
+        const deletedAddress = await Address.findOneAndDelete({ user: userId });
 
         if (!deletedAddress) {
             return res.status(404).json({ success: false, error: 'Address not found or you do not have permission to delete it' });
@@ -76,7 +93,7 @@ exports.getSpecificAddress = async (req, res) => {
 
 exports.getAddresses = async (req, res) => {
     try {
-        const userId = req.user._id;
+        const {userId} = req.user._id;
 
         const addresses = await Address.find({ user: userId });
 

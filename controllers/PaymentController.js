@@ -4,7 +4,7 @@ const express = require('express');
 exports.Addpayment = async (req, res) => {
     const url = "https://developers.flouci.com/api/generate_payment";
     const payload = {
-        "app_token": "",
+        "app_token": "07871599-39a5-4b3d-b443-a39d1e536ebe",
         "app_secret": process.env.private_key,
         "amount": req.body.amount,
         "accept_card": "true",

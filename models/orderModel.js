@@ -2,17 +2,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const orderItemSchema = new Schema({
-    product: {
-        type: Schema.Types.ObjectId,
-        ref: 'Product',
-        required: true
-    },
-    total: {
-        type: Number,
-        required: true
-    }
-});
 
 const orderSchema = new Schema({
     user: {
@@ -20,7 +9,15 @@ const orderSchema = new Schema({
         ref: 'User',
         required: true
     },
-    items: [orderItemSchema],
+    cart: {
+        type: Schema.Types.ObjectId,
+        ref: 'Cart',
+        required: true
+    },
+    total: {
+        type: String,
+        required: true
+    },
 
     status: {
         type: String,
