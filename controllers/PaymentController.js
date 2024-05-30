@@ -4,13 +4,13 @@ const express = require('express');
 exports.Addpayment = async (req, res) => {
     const url = "https://developers.flouci.com/api/generate_payment";
     const payload = {
-        "app_token": "07871599-39a5-4b3d-b443-a39d1e536ebe",
-        "app_secret": process.env.private_key,
+        "app_token": "", //public key of your flouci dev account
+        "app_secret": process.env.private_key, // private key of your flouci dev account
         "amount": req.body.amount,
         "accept_card": "true",
         "session_timeout_secs": 1200,
-        "success_link": "http://localhost:4200/payment/success",
-        "fail_link": "http://localhost:4200/payment/fail",
+        "success_link": "http://localhost:4200/payment",
+        "fail_link": "http://localhost:4200/checkout",
         "developer_tracking_id": "37943079-416e-4333-b644-f4fbbeb4a2e3"
     };
 

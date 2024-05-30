@@ -27,6 +27,9 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
+    solde: {
+        type: Number,
+    },
     price: {
         type: Number,
         required: true

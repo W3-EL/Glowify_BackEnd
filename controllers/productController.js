@@ -26,11 +26,11 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const { product_name, desc_prod, price, stock ,img,gender} = req.body;
+        const { product_name, desc_prod,solde, price, stock ,img,gender} = req.body;
 
         const updatedProduct = await Product.findOneAndUpdate(
             { _id: id },
-            { product_name, desc_prod, price, stock ,img,gender},
+            { product_name, desc_prod,solde, price, stock ,img,gender},
             { new: true }
         );
 
