@@ -1,12 +1,14 @@
+// routes/categoryRoutes.js
 const express = require('express');
-const productrouter = express.Router();
-const { getAllCategories,countCategories } = require('../controllers/productController');
+const categoryRouter = express.Router();
+const requireAdminAuth = require('../middlewares/requireAdminAuth');
+const { createCategory, updateCategory, deleteCategory, getCategoryById, getCategories,countCategories } = require('../controllers/categoryController');
+const {countProducts} = require("../controllers/productController");
 
-
-
-
-productrouter.get('/', getAllCategories);
-productrouter.get('/countCategories/c', countCategories);
-
-
-module.exports = productrouter;
+categoryRouter.post('/',requireAdminAuth, createCategory);
+categoryRouter.put('/:id', requireAdminAuth,updateCategory);
+categoryRouter.delete('/:id', requireAdminAuth,deleteCategory);
+categoryRouter.get('/:id', getCategoryById);
+categoryRouter.get('/', getCategories);
+categoryRouter.get('/count/c', countCategories);
+module.exports = categoryRouter;

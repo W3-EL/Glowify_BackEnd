@@ -2,21 +2,8 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const brandSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    logo: {
-        type: String 
-    }
-});
-const categorySchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-});
+
+
 
 const productSchema = new Schema({
     product_name: {
@@ -46,8 +33,16 @@ const productSchema = new Schema({
         type: String,
         required: true,
     },
-    category: categorySchema,
-    brand: brandSchema 
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true
+    },
+    brand: {
+        type: Schema.Types.ObjectId,
+        ref: 'Brand',
+        required: true
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model("Product", productSchema);

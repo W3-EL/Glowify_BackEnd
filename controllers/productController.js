@@ -26,11 +26,11 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const { product_name, desc_prod,solde, price, stock ,img,gender} = req.body;
+        const { product_name, desc_prod,solde, price, stock ,img,gender, category, brand} = req.body;
 
         const updatedProduct = await Product.findOneAndUpdate(
             { _id: id },
-            { product_name, desc_prod,solde, price, stock ,img,gender},
+            { product_name, desc_prod,solde, price, stock ,img,gender, category, brand},
             { new: true }
         );
 
@@ -46,10 +46,20 @@ exports.updateProduct = async (req, res) => {
 
 exports.getProducts = async (req, res) => {
     try {
-        const products = await Product.find();
-        res.json({ success: true, data: products });
+        const products = await Product.find()
+            .populate('category', 'name')
+            .populate('brand', 'name logo');
+
+        res.status(200).json({
+            success: true,
+            data: products
+        });
     } catch (error) {
-        res.status(500).json({ success: false, error: error.message });
+        res.status(500).json({
+            success: false,
+            message: 'Failed to fetch products',
+            error: error.message
+        });
     }
 };
 exports.getAllCategories = async (req, res) => {
@@ -104,21 +114,6 @@ exports.countProducts = async (req, res) => {
     try {
         const productCount = await Product.countDocuments();
         res.json({ success: true, data: productCount });
-    } catch (error) {
-        res.status(500).json({ success: false, error: error.message });
-    }
-};
-exports.countCategories = async (req, res) => {
-    try {
-        const categories = await Product.aggregate([
-            { $group: { _id: "$category", count: { $sum: 1 } } },
-            { $group: { _id: null, distinctCategories: { $sum: 1 } } }
-        ]);
-
-        // Extract the count of distinct categories
-        const distinctCategoryCount = categories.length > 0 ? categories[0].distinctCategories : 0;
-
-        res.json({ success: true, data: distinctCategoryCount });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }

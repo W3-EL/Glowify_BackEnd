@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a3cb04d5-9217-4b1f-a55e-3dc7a9d50160" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2fNJOaAxxb9p3jnaVlABMZiIdRw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/waelm/OneDrive/Desktop/Glowify/Gowify_BackEnd/Gowify_BackEnd/controllers&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\waelm\OneDrive\Desktop\Glowify\Gowify_BackEnd\Gowify_BackEnd\controllers" />
+      <recent name="C:\Users\waelm\OneDrive\Desktop\Glowify\Gowify_BackEnd\Gowify_BackEnd\models" />
+      <recent name="C:\Users\waelm\OneDrive\Desktop\Glowify\Gowify_BackEnd\Gowify_BackEnd\routes" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3cb04d5-9217-4b1f-a55e-3dc7a9d50160" name="Changes" comment="" />
+      <created>1713635570561</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713635570561</updated>
+      <workItem from="1713635571782" duration="25000" />
+      <workItem from="1713638973809" duration="1273000" />
+      <workItem from="1713784699167" duration="3347000" />
+      <workItem from="1713906195005" duration="1737000" />
+      <workItem from="1713908445170" duration="13919000" />
+      <workItem from="1713991287097" duration="5191000" />
+      <workItem from="1714003787764" duration="1364000" />
+      <workItem from="1714036697660" duration="1250000" />
+      <workItem from="1714090466250" duration="696000" />
+      <workItem from="1714353311239" duration="630000" />
+      <workItem from="1714515109654" duration="1220000" />
+      <workItem from="1714761933284" duration="5762000" />
+      <workItem from="1714917919042" duration="2158000" />
+      <workItem from="1715028035250" duration="2652000" />
+      <workItem from="1715304789381" duration="5070000" />
+      <workItem from="1715373588432" duration="6126000" />
+      <workItem from="1715457799996" duration="9907000" />
+      <workItem from="1715544413872" duration="11261000" />
+      <workItem from="1715634228155" duration="133000" />
+      <workItem from="1715634408844" duration="2283000" />
+      <workItem from="1715649097505" duration="6644000" />
+      <workItem from="1715735739644" duration="3420000" />
+      <workItem from="1715817029751" duration="668000" />
+      <workItem from="1715899097671" duration="731000" />
+      <workItem from="1715992789470" duration="1647000" />
+      <workItem from="1716064614627" duration="5711000" />
+      <workItem from="1716161200421" duration="13479000" />
+      <workItem from="1716224376603" duration="7412000" />
+      <workItem from="1716240469003" duration="6239000" />
+      <workItem from="1716324808834" duration="16839000" />
+      <workItem from="1716409823030" duration="3662000" />
+      <workItem from="1716573319537" duration="9290000" />
+      <workItem from="1716600754196" duration="2792000" />
+      <workItem from="1716666617649" duration="8716000" />
+      <workItem from="1716847421922" duration="5824000" />
+      <workItem from="1716931409588" duration="14797000" />
+      <workItem from="1717023168907" duration="7458000" />
+      <workItem from="1717107876288" duration="715000" />
+      <workItem from="1717675328484" duration="737000" />
+      <workItem from="1717717393650" duration="753000" />
+      <workItem from="1717928680527" duration="5203000" />
+      <workItem from="1717940119472" duration="1111000" />
+      <workItem from="1717944562690" duration="4841000" />
+      <workItem from="1718089670898" duration="2064000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
