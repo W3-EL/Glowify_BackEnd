@@ -5,9 +5,8 @@ const Product = require('../models/productModel');
 const Contact = require("../models/contactModel");
 exports.createOrder = async (req, res) => {
     try {
-        const { total,paid } = req.body;
+        const { total,paid,address } = req.body;
         const userId = req.user._id;
-        const address = await Address.findOne({ user: userId })
         const cart = await Cart.findOne({ user: userId }).populate('products.product');
 
         if (!cart || cart.products.length === 0) {
@@ -22,7 +21,7 @@ exports.createOrder = async (req, res) => {
         // Create a new order using the cart and provided total
         const newOrder = new Order({
             user: userId,
-            address : address._id,
+            address : address,
             cart: cart._id,
             products: cartProducts,
             total: total,

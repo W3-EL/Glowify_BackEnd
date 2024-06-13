@@ -36,12 +36,12 @@ const productSchema = new Schema({
     category: {
         type: Schema.Types.ObjectId,
         ref: 'Category',
-        required: true
+
     },
     brand: {
         type: Schema.Types.ObjectId,
         ref: 'Brand',
-        required: true
+
     }
 }, { timestamps: true });
 

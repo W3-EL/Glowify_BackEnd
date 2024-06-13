@@ -1,5 +1,7 @@
 const User = require("../models/userModel");
 const Cart = require('../models/cartModel');
+const Order = require('../models/orderModel');
+const Adress = require('../models/adressModel');
 const jwt = require("jsonwebtoken")
 const Product = require("../models/productModel");
 
@@ -72,18 +74,23 @@ const deleteUser = async (req, res) => {
     const userId = req.params.id;
 
     try {
-        const user = await User.findOneAndDelete({ _id: userId });
+        // Delete the user
+        const user = await User.findByIdAndDelete(userId);
 
         if (!user) {
             return res.status(404).json({ success: false, error: 'User not found' });
         }
 
+        // Delete all orders associated with the user
+        await Order.deleteMany({ user: userId });
+        await Adress.deleteMany({ user: userId });
         res.json({ success: true, data: user });
     } catch (err) {
-
+        console.error('Error deleting user and their orders:', err);
         res.status(500).json({ message: err.message });
     }
 };
+
 const countUsers = async (req, res) => {
     try {
         const userCount = await User.countDocuments();

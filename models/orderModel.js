@@ -15,8 +15,7 @@ const orderSchema = new Schema({
         required: true
     },
     address: {
-        type: Schema.Types.ObjectId,
-        ref: 'Address',
+        type: String,
         required: true
     },
     total: {

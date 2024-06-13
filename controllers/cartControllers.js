@@ -203,7 +203,7 @@ exports.countPromoCode = async (req, res) => {
     }
 };
 
-cron.schedule('0 0 * * *', async () => {
+cron.schedule('0 * * * *', async () => {
     try {
         // Assuming you have a PromoCode model with an expirationDate field
         const expiredPromoCodes = await PromoCode.find({ expirationDate: { $lt: new Date() } });
@@ -215,6 +215,7 @@ cron.schedule('0 0 * * *', async () => {
         console.error('Error deleting expired promo codes:', error);
     }
 });
+
 
 
 
