@@ -17,7 +17,7 @@ require("dotenv").config();
 
 
 app.use(cors({
-    origin: 'http://localhost:4200',
+    origin: '*',
     credentials: true 
 }));
 
