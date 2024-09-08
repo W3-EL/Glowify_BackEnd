@@ -22,18 +22,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/waelm/OneDrive/Desktop/Glowify/Gowify_BackEnd/Gowify_BackEnd/controllers&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/waelm/OneDrive/Desktop/Glowify/Gowify_BackEnd/Gowify_BackEnd",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\waelm\OneDrive\Desktop\Glowify\Gowify_BackEnd\Gowify_BackEnd" />
       <recent name="C:\Users\waelm\OneDrive\Desktop\Glowify\Gowify_BackEnd\Gowify_BackEnd\controllers" />
       <recent name="C:\Users\waelm\OneDrive\Desktop\Glowify\Gowify_BackEnd\Gowify_BackEnd\models" />
       <recent name="C:\Users\waelm\OneDrive\Desktop\Glowify\Gowify_BackEnd\Gowify_BackEnd\routes" />
@@ -96,7 +97,8 @@
       <workItem from="1718736712158" duration="605000" />
       <workItem from="1718872788393" duration="731000" />
       <workItem from="1723164916867" duration="605000" />
-      <workItem from="1725669337261" duration="2113000" />
+      <workItem from="1725669337261" duration="6308000" />
+      <workItem from="1725834234782" duration="5102000" />
     </task>
     <servers />
   </component>
